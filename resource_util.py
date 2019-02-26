@@ -29,7 +29,7 @@ def get_mem():
 
 
 def get_storage():
-    cmd = ['df -t ext4 | tail -n 2 | head -n 1 | cut -d " " -f 14 | cut -c 1-2']
+    cmd = ['df -t ext4 | grep sda1 | cut -d " " -f 13 | cut -c 1-2']
     storage = str(sp.check_output(cmd, shell=True), 'utf-8')[0:-1]
     # return int(storage.strip())  # Returns storage in percentage
     store.append(float(storage.strip()))
