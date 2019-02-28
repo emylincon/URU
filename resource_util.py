@@ -1,3 +1,5 @@
+# This is a property of London South Bank University Developed by Emeka Ugwuanyi
+
 from threading import Thread
 import matplotlib.pyplot as plt
 import psutil
