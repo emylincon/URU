@@ -6,4 +6,4 @@
 
 ![Result Graph](uru.PNG)
 
-*Graphical Result
+*Graphical Result*
