@@ -5,4 +5,5 @@
 * It plots the moving average of the CPU, RAM and Storage of the Unix over time
 
 ![Result Graph](uru.PNG)
+
 *Graphical Result
