@@ -1,4 +1,4 @@
-# This is a property of London South Bank University Developed by Emeka Ugwuanyi
+# Property of LSBu developed by Emeka Ugwuanyi
 
 from threading import Thread
 import matplotlib.pyplot as plt
@@ -31,7 +31,7 @@ def get_mem():
 
 
 def get_storage():
-    cmd = ['df -t ext4 | grep sda1 | cut -d " " -f 13 | cut -c 1-2']
+    cmd = ['df -t ext4 | grep {} | cut -d " " -f 13 | cut -c 1-2'.format(v_store)]
     storage = str(sp.check_output(cmd, shell=True), 'utf-8')[0:-1]
     # return int(storage.strip())  # Returns storage in percentage
     store.append(float(storage.strip()))
@@ -80,6 +80,14 @@ def plot_resource_util():
 
 
 def main():
+    global v_store
+
+    cmd = ['df -t ext4 | grep sda1 | cut -d " " -f 13 | cut -c 1-2']
+    st = str(sp.check_output(cmd, shell=True), 'utf-8')[0:-1]
+    if st == '':
+        v_store = 'root'
+    else:
+        v_store = 'sda1'
     try:
         while True:
             get_resource_util()
