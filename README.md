@@ -5,4 +5,4 @@
 * Please run the setup.sh script as super user before use
 * It plots the moving average of the CPU, RAM and Storage of the Unix over time
 
-![graphical display](uru.png)
+![graphical display](uru1.png)
