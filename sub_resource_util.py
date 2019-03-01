@@ -36,7 +36,7 @@ def get_mem():
 
 
 def get_storage():
-    cmd = ['df -t ext4 | grep sda1 | cut -d " " -f 13 | cut -c 1-2']
+    cmd = ['df -t ext4 | grep {} | cut -d " " -f 13 | cut -c 1-2'.format(v_store)]
     storage = str(sp.check_output(cmd, shell=True), 'utf-8')[0:-1]
     # return int(storage.strip())  # Returns storage in percentage
     store.append(float(storage.strip()))
@@ -84,6 +84,7 @@ def plot_mem():
     ax1.plot(calculate_mov_avg(mem), linewidth=5, label='Moving Avg Memory')
     ax1.set_ylabel('Utilization in percentage')
     #fig1.set_xlabel('Time (scale of 2 seconds)')
+    ax1.set_title('Memory Utilization')
     ax1.legend()
     plt.subplot(ax1)
 
@@ -96,8 +97,9 @@ def plot_cpu():
     ax2.plot(calculate_mov_avg(cpu), linewidth=5, label='Moving Avg CPU')
     ax2.plot(cpu, linewidth=5, label='CPU')
 
-    ax2.set_ylabel('Utilization in percentage')
+    #ax2.set_ylabel('Utilization in percentage')
     ax2.set_xlabel('Time (scale of 2 seconds)')
+    ax2.set_title('CPU Utilization')
     ax2.legend()
     plt.subplot(ax2)
 
@@ -110,13 +112,22 @@ def plot_storage():
     ax3.plot(store, linewidth=5, label='Storage')
     ax3.plot(calculate_mov_avg(store), linewidth=5, label='Moving Avg Storage')
 
-    ax3.set_ylabel('Utilization in percentage')
+    #ax3.set_ylabel('Utilization in percentage')
     # fig3.set_xlabel('Time (scale of 2 seconds)')
+    ax3.set_title('Storage Utilization')
     ax3.legend()
     plt.subplot(ax3)
 
 
 def main():
+    global v_store
+
+    cmd = ['df -t ext4 | grep sda1 | cut -d " " -f 13 | cut -c 1-2']
+    st = str(sp.check_output(cmd, shell=True), 'utf-8')[0:-1]
+    if st == '':
+        v_store = 'root'
+    else:
+        v_store = 'sda1'
     try:
         while True:
             get_resource_util()
@@ -128,6 +139,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
