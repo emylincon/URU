@@ -5,6 +5,7 @@ import subprocess as sp
 from drawnow import *
 import time
 import matplotlib.animation as animation
+from pyfiglet import Figlet
 
 cpu = []
 store = []
@@ -121,6 +122,12 @@ def plot_storage():
 
 def main():
     global v_store
+    
+    os.system('clear')
+    g = Figlet(font='bubble')
+
+    print(g.renderText('Unix Resource Monitoring Tool'))
+    print(g.renderText('                      BY     EMEKA'))
 
     cmd = ['df -t ext4 | grep sda1 | cut -d " " -f 13 | cut -c 1-2']
     st = str(sp.check_output(cmd, shell=True), 'utf-8')[0:-1]
