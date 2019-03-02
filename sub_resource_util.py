@@ -4,7 +4,7 @@ import psutil
 import subprocess as sp
 from drawnow import *
 import time
-import matplotlib.animation as animation
+#import matplotlib.animation as animation
 from pyfiglet import Figlet
 
 cpu = []
