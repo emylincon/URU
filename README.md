@@ -1,4 +1,5 @@
-### This is a property of London South Bank University Developed by Emeka
+### This is a property of London South Bank University 
+### Author@Emeka
 # URU (Unix Resource Utilization)
 
 * This python application monitors the resource utilization of any unix system
