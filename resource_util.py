@@ -1,4 +1,4 @@
-# Property of LSBU developed by Emeka Ugwuanyi
+# Property of LSBU developed by Emeka Ugwuanyi licenced under CC
 
 from threading import Thread
 import matplotlib.pyplot as plt
