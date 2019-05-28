@@ -7,3 +7,6 @@
 ![Result Graph](uru.PNG)
 
 *Graphical Result*
+
+### To Clone
+` git clone -b subplot https://github.com/emylincon/URU.git`
